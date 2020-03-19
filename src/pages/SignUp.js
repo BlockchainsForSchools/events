@@ -3,12 +3,11 @@ import React from "react";
 
 type PropTypes = {};
 
-export const Home = (props: PropTypes) => {
+export const SignUp = (props: PropTypes) => {
 	return (
 		<div>
-			<h1>App</h1>
 		</div>
 	)
 };
 
-export default Home;
+export default SignUp;
