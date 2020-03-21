@@ -10,6 +10,7 @@ import {
 	Container
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import backend from '../utils/backend';
 
 type PropTypes = {};
 
@@ -29,6 +30,22 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+const handleLogin = event => {
+	event.preventDefault();
+	const email = event.target.email.value;
+	const password = event.target.password.value;
+	console.log('email: ' + email);
+	console.log('password: ' + password);
+	backend
+		.post('/auth/login', {
+			email: email,
+			password: password
+		})
+		.then(response => {
+			console.log(response);
+		});
+};
+
 export const Login = (props: PropTypes) => {
 	const classes = useStyles();
 
@@ -39,7 +56,7 @@ export const Login = (props: PropTypes) => {
 				<Typography component='h1' variant='h4'>
 					Log In
 				</Typography>
-				<form className={classes.form} noValidate>
+				<form onSubmit={handleLogin} className={classes.form} noValidate>
 					<TextField
 						variant='outlined'
 						margin='normal'
