@@ -37,7 +37,7 @@ const handleLogin = event => {
 	console.log('email: ' + email);
 	console.log('password: ' + password);
 	backend
-		.post('/auth/login', {
+		.post('/api/auth/login', {
 			email: email,
 			password: password
 		})
