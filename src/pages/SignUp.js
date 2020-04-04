@@ -107,7 +107,7 @@ export const SignUp = (props: PropTypes) => {
 					</Button>
 					<Grid container justify='center'>
 						<Grid item>
-							<Link href='/login' variant='body2'>
+							<Link to='/login' variant='body2'>
 								Already have an account? Log in
 							</Link>
 						</Grid>
