@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { GoogleLogin } from "react-google-login";
 import {
     Button,
     Link,
@@ -48,6 +49,23 @@ const handleLogin = (event) => {
         });
 };
 
+const successResponseGoogle = (response) => {
+    var id_token = response.getAuthResponse().id_token;
+    console.log(id_token);
+    backend
+        .post("/api/auth/oauthlogin", {
+            token: id_token,
+        })
+        .then((response) => {
+            console.log(response);
+        });
+};
+
+const failureResponseGoogle = (response) => {
+    console.log("error: " + response.error);
+    console.log("details: " + response.details);
+};
+
 export const Login = (props: PropTypes) => {
     const classes = useStyles();
 
@@ -58,6 +76,14 @@ export const Login = (props: PropTypes) => {
                 <Typography component="h1" variant="h4">
                     Log In
                 </Typography>
+                <br />
+                <GoogleLogin
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                    buttonText="Continue with Google"
+                    onSuccess={successResponseGoogle}
+                    onFailure={failureResponseGoogle}
+                    cookiePolicy={"single_host_origin"}
+                />
                 <form
                     onSubmit={handleLogin}
                     className={classes.form}
