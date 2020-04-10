@@ -1,8 +1,9 @@
 // @flow
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import {
     Button,
+    Link,
     CssBaseline,
     TextField,
     Grid,
@@ -95,7 +96,11 @@ export const Login = (props: PropTypes) => {
                     </Button>
                     <Grid container justify="center">
                         <Grid item>
-                            <Link to="/sign-up" variant="body2">
+                            <Link
+                                component={RouterLink}
+                                to="/sign-up"
+                                variant="body2"
+                            >
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
