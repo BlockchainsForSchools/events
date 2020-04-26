@@ -4,7 +4,7 @@ import { AppProvider } from "./comps/AppProvider";
 import Content from "./comps/Content";
 import { BrowserRouter } from "react-router-dom";
 
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
