@@ -91,7 +91,7 @@ export const Login = (props: PropTypes) => {
                 >
                     <TextField
                         variant="outlined"
-                        margin="normal"
+                        margin="dense"
                         required
                         fullWidth
                         id="email"
