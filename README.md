@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc7a12a859444a07bf66727d1faff0da)](https://app.codacy.com/gh/blockchainsforschools/events-app?utm_source=github.com&utm_medium=referral&utm_content=blockchainsforschools/events-app&utm_campaign=Badge_Grade_Dashboard)
+
 In the project directory, you can run:
 
 ### `npm start`
