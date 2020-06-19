@@ -1,8 +1,8 @@
 import React from "react";
-
 import { TextField, Button, Typography } from "@material-ui/core";
-
 import { ThemeProvider } from "@material-ui/core/styles";
+
+type PropTypes = {};
 
 const createEventFormDetails = (props) => {
 	const continueToNextStep = (e) => {

@@ -3,7 +3,9 @@ import React from "react";
 import { List, ListItem, ListItemText, Button } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 
-const createEventFormConfirmation = (props) => {
+type PropTypes = {};
+
+const createEventFormConfirmation = (props: PropTypes) => {
 	const continueToNextStep = (e) => {
 		e.preventDefault();
 		props.nextStep();
