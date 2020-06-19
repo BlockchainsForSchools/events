@@ -3,7 +3,7 @@ import classes from "./EventPageHeader.module.css";
 
 type PropTypes = {};
 
-const eventPageHeader = (props: PropTypes) => {
+const EventPageHeader = (props: PropTypes) => {
 	return (
 		<div className={classes.headerText}>
 			<h2>How To Get Started With Blockchain @ Deloitte 02/25</h2>
@@ -15,4 +15,4 @@ const eventPageHeader = (props: PropTypes) => {
 	);
 };
 
-export default eventPageHeader;
+export default EventPageHeader;

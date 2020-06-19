@@ -6,6 +6,7 @@ import {
 	IconButton,
 	Button
 } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -13,7 +14,7 @@ type PropTypes = {};
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		height: 65
+		height: 65,
 	},
 	title: {
 		flexGrow: 1,
@@ -36,8 +37,13 @@ const EventPageAppBar = (props: PropTypes) => {
 					Events
 				</Typography>
 				<IconButton
+					aria-label="search"
+					aria-haspopup="true"
+				>
+					<SearchIcon />
+				</IconButton>
+				<IconButton
 					aria-label="more"
-					aria-controls="long-menu"
 					aria-haspopup="true"
 				>
 					<MoreVertIcon />
