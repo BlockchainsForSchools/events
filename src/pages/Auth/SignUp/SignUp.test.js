@@ -1,66 +1,96 @@
 import React from "react";
-import { render, wait, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import Enzyme, { mount } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import { BrowserRouter } from "react-router-dom";
+import { TextField } from "@material-ui/core";
 
 import { SignUp } from "./SignUp";
 
-test("Signup form has correct fields", async () => {
-	const { container } = render(
-		<BrowserRouter>
-			<SignUp />
-		</BrowserRouter>
-	);
-	const firstName = container.querySelector('input[name="firstName"]');
-	const lastName = container.querySelector('input[name="lastName"]');
-	const email = container.querySelector('input[name="email"]');
-	const password = container.querySelector('input[name="password"]');
-	const confirmPassword = container.querySelector('input[name="password2"]');
-	const submit = container.querySelector('button[type="submit"]');
+Enzyme.configure({ adapter: new Adapter() });
 
-	await wait(() => {
-		fireEvent.change(firstName, {
-			target: {
-				value: "mockFirstName"
-			}
-		});
+describe("<SignUp />", () => {
+	let wrapper;
+
+	beforeEach(() => {
+		wrapper = mount(
+			<BrowserRouter>
+				<SignUp />
+			</BrowserRouter>
+		);
 	});
 
-	await wait(() => {
-		fireEvent.change(lastName, {
-			target: {
-				value: "mockLastName"
-			}
-		});
+	afterEach(() => {
+		jest.clearAllMocks();
 	});
 
-	await wait(() => {
-		fireEvent.change(email, {
-			target: {
-				value: "mock@email.com"
-			}
-		});
-	});
+	it("renders the proper text fields", () => {
+		expect(
+			wrapper.contains(
+				<TextField
+					autoComplete="fname"
+					name="firstName"
+					variant="outlined"
+					required
+					fullWidth
+					id="firstName"
+					label="First Name"
+					autoFocus
+				/>
+			)
+		).toBe(true);
 
-	await wait(() => {
-		fireEvent.change(password, {
-			target: {
-				value: "password"
-			}
-		});
-	});
+		expect(
+			wrapper.contains(
+				<TextField
+					variant="outlined"
+					required
+					fullWidth
+					id="lastName"
+					label="Last Name"
+					name="lastName"
+				/>
+			)
+		).toBe(true);
 
-	await wait(() => {
-		fireEvent.change(confirmPassword, {
-			target: {
-				value: "password"
-			}
-		});
-	});
+		expect(
+			wrapper.contains(
+				<TextField
+					variant="outlined"
+					required
+					fullWidth
+					id="email"
+					label="Email Address"
+					name="email"
+				/>
+			)
+		).toBe(true);
 
-	await wait(() => {
-		fireEvent.click(submit);
-	});
+		expect(
+			wrapper.contains(
+				<TextField
+					variant="outlined"
+					required
+					fullWidth
+					name="password"
+					label="Password"
+					type="password"
+					id="password"
+				/>
+			)
+		).toBe(true);
 
-	expect(firstName.target.value).toBe("mockFirstName");
+		expect(
+			wrapper.contains(
+				<TextField
+					variant="outlined"
+					required
+					fullWidth
+					name="password2"
+					label="Confirm Password"
+					type="password"
+					id="password2"
+				/>
+			)
+		).toBe(true);
+	});
 });
