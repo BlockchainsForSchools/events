@@ -1,42 +1,59 @@
 import React from "react";
-import { render, wait, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import Enzyme, { mount } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import { BrowserRouter } from "react-router-dom";
+import { Button, TextField } from "@material-ui/core";
 
 import { Login } from "./Login";
 
-test("Login form has correct fields", async () => {
-	const { container } = render(
-		<BrowserRouter>
-			<Login />
-		</BrowserRouter>
-	);
-	const email = container.querySelector('input[name="email"]');
-	const password = container.querySelector('input[name="password"]');
-	const submit = container.querySelector('button[type="submit"]');
-	const results = container.querySelector("form[class=makestyles-form-2]");
+Enzyme.configure({ adapter: new Adapter() });
 
-	await wait(() => {
-		fireEvent.change(email, {
-			target: {
-				value: "mock@email.com"
-			}
-		});
+describe("<Login />", () => {
+	let wrapper;
+
+	beforeEach(() => {
+		wrapper = mount(
+			<BrowserRouter>
+				<Login />
+			</BrowserRouter>
+		);
 	});
 
-	await wait(() => {
-		fireEvent.change(password, {
-			target: {
-				value: "password"
-			}
-		});
+	afterEach(() => {
+		jest.clearAllMocks();
 	});
 
-	await wait(() => {
-		fireEvent.click(submit);
+	it("renders the proper text fields", () => {
+		expect(
+			wrapper.contains(
+				<TextField
+					variant="outlined"
+					margin="dense"
+					required
+					fullWidth
+					id="email"
+					label="Email Address"
+					name="email"
+					autoComplete="email"
+					autoFocus
+				/>
+			)
+		).toBe(true);
+		
+		expect(
+			wrapper.contains(
+				<TextField
+					variant="outlined"
+					margin="normal"
+					required
+					fullWidth
+					name="password"
+					label="Password"
+					type="password"
+					id="password"
+					autoComplete="current-password"
+				/>
+			)
+		).toBe(true);
 	});
-
-	// expect(results.innerHTML).toBe(
-	//   '{"email":"mock@email.com", "password": "password"}'
-	// );
 });
