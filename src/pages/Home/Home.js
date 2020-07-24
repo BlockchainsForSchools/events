@@ -1,5 +1,6 @@
 // @flow
-import React, { Fragment, useState, useCallback } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 import FadeInAppBar from "./FadeInAppBar";
 import Hero from "./Hero";
@@ -8,19 +9,23 @@ import Content from "./Content";
 type PropTypes = {};
 
 export const Home = (props: PropTypes) => {
-	const [height, setHeight] = useState(0);
+	// TODO: Dynamically retrieve hero height later
+	let [heroHeight, setHeroHeight] = useState(0);
 
-	const measuredRef = useCallback((node) => {
-		if (node !== null) {
-			setHeight(node.getBoundingClientRect().height);
-		}
-	}, []);
+	useEffect(() => {
+		heroHeight = document.getElementById("hero")?.clientHeight;
+		console.log(heroHeight);
+	}, [heroHeight]);
+
+	console.log(heroHeight);
+
+	const scrollRef = useRef(null);
 
 	return (
 		<Fragment>
-			<FadeInAppBar />
-			<Hero ref={measuredRef} />
-			<Content heroHeight={height} />
+			<FadeInAppBar heroHeight={heroHeight} />
+			<Hero scrollRef={scrollRef} />
+			<Content scrollRef={scrollRef} />
 		</Fragment>
 	);
 };
