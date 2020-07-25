@@ -12,7 +12,6 @@ type PropTypes = {};
 const useStyles = makeStyles((theme) => ({
 	hero: {
 		width: "100vw",
-		height: "570px",
 		maxWidth: "100%",
 		display: "flex",
 		flexDirection: "column",
