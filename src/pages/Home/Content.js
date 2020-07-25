@@ -16,6 +16,7 @@ type PropTypes = {};
 const useStyles = makeStyles((theme) => ({
 	content: {
 		height: "150vh",
+		marginTop: 1,
 		padding: "10vh 10vw 10vh 10vw",
 		textAlign: "left"
 	},

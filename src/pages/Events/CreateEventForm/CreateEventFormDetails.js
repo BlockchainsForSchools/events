@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 type PropTypes = {};
 
-const createEventFormDetails = (props) => {
+const createEventFormDetails = (props: PropTypes) => {
 	const continueToNextStep = (e) => {
 		e.preventDefault();
 		props.nextStep();
