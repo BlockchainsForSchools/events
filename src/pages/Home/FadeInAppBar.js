@@ -28,7 +28,10 @@ const useStyles = makeStyles((theme) => ({
 const FadeInAppBar = (props: PropTypes) => {
 	const { heroHeight } = props;
 	const classes = useStyles();
-	const trigger = useScrollTrigger({ threshold: heroHeight });
+	const trigger = useScrollTrigger({
+		disableHysteresis: true,
+		threshold: heroHeight
+	});
 
 	return (
 		<AppBar
