@@ -1,40 +1,40 @@
 // @flow
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 import CreateUpdateFormConfirmation from "./CreateUpdateFormConfirmation";
 import CreateUpdateFormDetails from "./CreateUpdateFormDetails";
 import CreateUpdateFormSuccess from "./CreateUpdateFormSuccess";
 
 class CreateUpdateForm extends Component {
-  state = {step : 1, title: "", content: ""};
+	state = { step: 1, title: "", content: "" };
 
-  nextStepHandler = () => {
-    const {step} = this.state;
-    this.setState({step : step + 1});
-  };
+	nextStepHandler = () => {
+		const { step } = this.state;
+		this.setState({ step: step + 1 });
+	};
 
-  prevStepHandler = () => {
-    const {step} = this.state;
-    this.setState({step : step - 1});
-  };
+	prevStepHandler = () => {
+		const { step } = this.state;
+		this.setState({ step: step - 1 });
+	};
 
-  fieldChangeHandler = (input) =>
-      (e) => { this.setState({[input] : e.target.value}); };
+	fieldChangeHandler = (input) => (e) => {
+		this.setState({ [input]: e.target.value });
+	};
 
-  render() {
-    const {step} = this.state;
-    const {title, content} = this.state;
+	render() {
+		const { step } = this.state;
+		const { title, content } = this.state;
 
-    const formValues = {title, content};
+		const formValues = { title, content };
 
-    switch (step) {
-    case 1:
-                                return (
+		switch (step) {
+			case 1:
+				return (
 					<CreateUpdateFormDetails
-                                                nextStep={this.nextStepHandler}
+						nextStep={this.nextStepHandler}
 						onFieldChange={this.fieldChangeHandler}
-						values={
-        formValues}
+						values={formValues}
 					/>
 				);
 			case 2:
@@ -45,12 +45,12 @@ class CreateUpdateForm extends Component {
 						values={formValues}
 					/>
 				);
-    case 3:
-      return <CreateUpdateFormSuccess />;
-    default:
-      break;
-    }
-  }
+			case 3:
+				return <CreateUpdateFormSuccess />;
+			default:
+				break;
+		}
+	}
 }
 
 export default CreateUpdateForm;
