@@ -5,7 +5,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 
@@ -14,19 +14,15 @@ import HeroImage from "./hero-image.jpg";
 type PropTypes = {};
 
 const useStyles = makeStyles((theme) => ({
-	content: {
-		height: "150vh",
-		marginTop: 1,
-		padding: "10vh 10vw 10vh 10vw",
-		textAlign: "left"
-	},
-	root: {
-		maxWidth: 345
-	},
-	media: {
-		height: 140
-	}
-}));
+                               content : {
+                                 height : "150vh",
+                                 marginTop : 1,
+                                 padding : "10vh 10vw 10vh 10vw",
+                                 textAlign : "left"
+                               },
+                               root : {maxWidth : 345},
+                               media : {height : 140}
+                             }));
 
 export const Content = (props: PropTypes) => {
 	const classes = useStyles();

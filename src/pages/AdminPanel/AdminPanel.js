@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment } from "react";
+import React, {Fragment} from "react";
 
 import AdminAppBar from "./AdminAppBar";
 import Content from "./Content";

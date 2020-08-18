@@ -1,17 +1,16 @@
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import {Button} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
 
 type PropTypes = {};
 
-const useStyles = makeStyles((theme) => ({
-	linkButton: { color: "white", margin: "1vh" }
-}));
+const useStyles =
+    makeStyles((theme) => ({linkButton : {color : "white", margin : "1vh"}}));
 
 const CreateUpdateFormSuccess = (props: PropTypes) => {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
+        return (
 		<div>
 			<h1>You have successfully created an update!</h1>
 			<Button
