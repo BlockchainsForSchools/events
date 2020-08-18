@@ -5,7 +5,8 @@ import Login from "../pages/Auth/Login/Login";
 import SignUp from "../pages/Auth/SignUp/SignUp";
 import Events from "../pages/Events/Events";
 import CreateEventForm from "../pages/Events/CreateEventForm/CreateEventForm";
-import EventPage from '../pages/Events/EventPage/EventPage'
+import EventPage from "../pages/Events/EventPage/EventPage";
+import AdminPanel from "../pages/AdminPanel/AdminPanel";
 
 const Content = () => {
 	return (
@@ -21,6 +22,7 @@ const Content = () => {
 					component={CreateEventForm}
 					exact
 				/>
+				<Route path={"/admin"} component={AdminPanel} />
 			</Switch>
 		</div>
 	);
