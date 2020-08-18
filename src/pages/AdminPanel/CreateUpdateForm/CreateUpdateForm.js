@@ -1,16 +1,12 @@
 // @flow
 import React, { Component } from "react";
 
-import CreateUpdateFormDetails from "./CreateUpdateFormDetails";
 import CreateUpdateFormConfirmation from "./CreateUpdateFormConfirmation";
+import CreateUpdateFormDetails from "./CreateUpdateFormDetails";
 import CreateUpdateFormSuccess from "./CreateUpdateFormSuccess";
 
 class CreateUpdateForm extends Component {
-	state = {
-		step: 1,
-		title: "",
-		content: ""
-	};
+	state = { step: 1, title: "", content: "" };
 
 	nextStepHandler = () => {
 		const { step } = this.state;
@@ -30,10 +26,7 @@ class CreateUpdateForm extends Component {
 		const { step } = this.state;
 		const { title, content } = this.state;
 
-		const formValues = {
-			title,
-			content
-		};
+		const formValues = { title, content };
 
 		switch (step) {
 			case 1:

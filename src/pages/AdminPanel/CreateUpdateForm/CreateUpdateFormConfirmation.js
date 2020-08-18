@@ -1,7 +1,6 @@
-import React from "react";
-
-import { Typography, Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
+import React from "react";
 
 const ReactMarkdown = require("react-markdown");
 

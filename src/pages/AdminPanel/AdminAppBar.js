@@ -1,20 +1,15 @@
 // @flow
-import React from "react";
 import { AppBar, Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
 type PropTypes = {};
 
 const useStyles = makeStyles((theme) => ({
-	appBar: {
-		color: "white",
-		padding: theme.spacing(1)
-	},
-	toolbarButtons: {
-		marginLeft: "auto"
-	}
+	appBar: { color: "white", padding: theme.spacing(1) },
+	toolbarButtons: { marginLeft: "auto" }
 }));
 
 const AdminAppBar = (props: PropTypes) => {

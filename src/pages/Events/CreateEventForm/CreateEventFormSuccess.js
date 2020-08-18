@@ -1,14 +1,11 @@
-import React from "react";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
 type PropTypes = {};
 
 const useStyles = makeStyles((theme) => ({
-	linkButton: {
-		color: "white",
-		margin: "1vh"
-	}
+	linkButton: { color: "white", margin: "1vh" }
 }));
 
 const CreateEventFormSuccess = (props: PropTypes) => {
@@ -22,7 +19,8 @@ const CreateEventFormSuccess = (props: PropTypes) => {
 				color="primary"
 				variant="contained"
 				size="large"
-				href="/admin"
+				href="/admin
+       "
 			>
 				Back to Admin Panel
 			</Button>

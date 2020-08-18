@@ -1,7 +1,7 @@
 // @flow
-import React from "react";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
 type PropTypes = {};
 
@@ -11,10 +11,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: "10vh 10vw 10vh 10vw",
 		textAlign: "center"
 	},
-	linkButton: {
-		color: "white",
-		margin: "1vh"
-	}
+	linkButton: { color: "white", margin: "1vh" }
 }));
 
 export const Content = (props: PropTypes) => {
@@ -29,6 +26,7 @@ export const Content = (props: PropTypes) => {
 				size="large"
 				href="/create-update"
 			>
+				{" "}
 				Create an Update
 			</Button>
 			<br />

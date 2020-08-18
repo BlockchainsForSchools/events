@@ -1,6 +1,6 @@
-import React from "react";
-import { TextField, Button, Typography } from "@material-ui/core";
+import { Button, TextField, Typography } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
+import React from "react";
 
 type PropTypes = {};
 
@@ -16,7 +16,6 @@ const createEventFormDetails = (props: PropTypes) => {
 			<Typography component="h1" variant="h4">
 				Create Event
 			</Typography>
-
 			<TextField
 				label="Event name"
 				variant="outlined"
@@ -32,7 +31,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				defaultValue={values.url}
 				onChange={onFieldChange("url")}
 			/>
-			<br />
+			<br />{" "}
 			<TextField
 				label="Start time"
 				variant="outlined"
@@ -40,7 +39,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				defaultValue={values.startTime}
 				onChange={onFieldChange("startTime")}
 			/>
-			<br />
+			<br />{" "}
 			<TextField
 				label="End time"
 				variant="outlined"
@@ -48,7 +47,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				defaultValue={values.endTime}
 				onChange={onFieldChange("endTime")}
 			/>
-			<br />
+			<br />{" "}
 			<TextField
 				label="Event location"
 				variant="outlined"
@@ -56,7 +55,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				defaultValue={values.location}
 				onChange={onFieldChange("location")}
 			/>
-			<br />
+			<br />{" "}
 			<TextField
 				label="Tags"
 				variant="outlined"
@@ -64,7 +63,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				defaultValue={values.tags}
 				onChange={onFieldChange("tags")}
 			/>
-			<br />
+			<br />{" "}
 			<TextField
 				label="Event image URL"
 				variant="outlined"
@@ -72,7 +71,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				defaultValue={values.imageUrl}
 				onChange={onFieldChange("imageUrl")}
 			/>
-			<br />
+			<br />{" "}
 			<Button
 				color="primary"
 				variant="contained"

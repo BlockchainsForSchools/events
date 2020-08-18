@@ -1,13 +1,14 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Home from "../pages/Home/Home";
-import Login from "../pages/Auth/Login/Login";
-import SignUp from "../pages/Auth/SignUp/SignUp";
-import Events from "../pages/Events/Events";
-import EventPage from "../pages/Events/EventPage/EventPage";
+import { Route, Switch } from "react-router-dom";
+
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
 import CreateUpdateForm from "../pages/AdminPanel/CreateUpdateForm/CreateUpdateForm";
+import Login from "../pages/Auth/Login/Login";
+import SignUp from "../pages/Auth/SignUp/SignUp";
 import CreateEventForm from "../pages/Events/CreateEventForm/CreateEventForm";
+import EventPage from "../pages/Events/EventPage/EventPage";
+import Events from "../pages/Events/Events";
+import Home from "../pages/Home/Home";
 
 const Content = () => {
 	return (
@@ -23,7 +24,7 @@ const Content = () => {
 					path={"/create-update"}
 					component={CreateUpdateForm}
 					exact
-				/>
+				/>{" "}
 				<Route
 					path={"/create-event"}
 					component={CreateEventForm}
