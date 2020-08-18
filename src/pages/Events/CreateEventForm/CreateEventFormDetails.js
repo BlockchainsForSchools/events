@@ -21,7 +21,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				label="Event name"
 				variant="outlined"
 				margin="normal"
-				defaultValue={values.eventName}
+				defaultValue={values.name}
 				onChange={onFieldChange("name")}
 			/>
 			<br />
@@ -29,7 +29,7 @@ const createEventFormDetails = (props: PropTypes) => {
 				label="Event URL"
 				variant="outlined"
 				margin="normal"
-				defaultValue={values.eventUrl}
+				defaultValue={values.url}
 				onChange={onFieldChange("url")}
 			/>
 			<br />

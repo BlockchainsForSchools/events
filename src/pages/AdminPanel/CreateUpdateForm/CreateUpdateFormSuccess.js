@@ -11,12 +11,12 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-const CreateEventFormSuccess = (props: PropTypes) => {
+const CreateUpdateFormSuccess = (props: PropTypes) => {
 	const classes = useStyles();
 
 	return (
 		<div>
-			<h1>You have successfully created an event!</h1>
+			<h1>You have successfully created an update!</h1>
 			<Button
 				className={classes.linkButton}
 				color="primary"
@@ -30,4 +30,4 @@ const CreateEventFormSuccess = (props: PropTypes) => {
 	);
 };
 
-export default CreateEventFormSuccess;
+export default CreateUpdateFormSuccess;

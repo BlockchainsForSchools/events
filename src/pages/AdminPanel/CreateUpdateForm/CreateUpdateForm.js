@@ -1,17 +1,63 @@
 // @flow
-import React from "react";
-import { Typography } from "@material-ui/core";
+import React, { Component } from "react";
 
-type PropTypes = {};
+import CreateUpdateFormDetails from "./CreateUpdateFormDetails";
+import CreateUpdateFormConfirmation from "./CreateUpdateFormConfirmation";
+import CreateUpdateFormSuccess from "./CreateUpdateFormSuccess";
 
-export const CreateUpdateForm = (props: PropTypes) => {
-	return (
-		<div>
-			<Typography component="h1" variant="h4">
-				Create Update
-			</Typography>
-		</div>
-	);
-};
+class CreateUpdateForm extends Component {
+	state = {
+		step: 1,
+		title: "",
+		content: ""
+	};
+
+	nextStepHandler = () => {
+		const { step } = this.state;
+		this.setState({ step: step + 1 });
+	};
+
+	prevStepHandler = () => {
+		const { step } = this.state;
+		this.setState({ step: step - 1 });
+	};
+
+	fieldChangeHandler = (input) => (e) => {
+		this.setState({ [input]: e.target.value });
+	};
+
+	render() {
+		const { step } = this.state;
+		const { title, content } = this.state;
+
+		const formValues = {
+			title,
+			content
+		};
+
+		switch (step) {
+			case 1:
+				return (
+					<CreateUpdateFormDetails
+						nextStep={this.nextStepHandler}
+						onFieldChange={this.fieldChangeHandler}
+						values={formValues}
+					/>
+				);
+			case 2:
+				return (
+					<CreateUpdateFormConfirmation
+						prevStep={this.prevStepHandler}
+						nextStep={this.nextStepHandler}
+						values={formValues}
+					/>
+				);
+			case 3:
+				return <CreateUpdateFormSuccess />;
+			default:
+				break;
+		}
+	}
+}
 
 export default CreateUpdateForm;
