@@ -1,7 +1,9 @@
 import React from "react";
 
-import { List, ListItem, ListItemText, Button } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
+
+const ReactMarkdown = require("react-markdown");
 
 type PropTypes = {};
 
@@ -21,17 +23,15 @@ const CreateUpdateFormConfirmation = (props: PropTypes) => {
 
 	return (
 		<ThemeProvider>
-			<List>
-				<ListItem>
-					<ListItemText>
-						<ListItemText
-							primary="Update Title"
-							secondary={title}
-						/>
-					</ListItemText>
-				</ListItem>
-				<pre>{content}</pre>
-			</List>
+			<Typography component="h1" variant="h4">
+				Update Title: {title}
+			</Typography>
+			<br />
+			<Typography component="h1" variant="h4">
+				Update Content
+			</Typography>
+
+			<ReactMarkdown source={content} />
 			<br />
 
 			<Button

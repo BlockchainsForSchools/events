@@ -30,10 +30,10 @@ const createUpdateFormDetails = (props: PropTypes) => {
 				variant="outlined"
 				margin="normal"
 				defaultValue={values.content}
-                onChange={onFieldChange("content")}
-                placeholder="Write markdown here"
+				onChange={onFieldChange("content")}
+				placeholder="Write markdown here"
 				multiline
-				rows={6}
+				fullWidth="true"
 			/>
 			<br />
 			<Button
