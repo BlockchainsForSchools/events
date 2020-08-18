@@ -1,12 +1,14 @@
 // @flow
 import React, { Fragment } from "react";
 
-type PropTypes = {};
+import AdminAppBar from "./AdminAppBar";
+import Content from "./Content";
 
 export const AdminPanel = (props: PropTypes) => {
 	return (
 		<Fragment>
-			<h1>Admin Panel</h1>
+			<AdminAppBar />
+			<Content />
 		</Fragment>
 	);
 };

@@ -20,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
 		padding: "10vh 10vw 10vh 10vw",
 		textAlign: "left"
 	},
-	submit: {
-		margin: theme.spacing(3, 0, 2)
-	},
 	root: {
 	  maxWidth: 345,
 	},

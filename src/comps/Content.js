@@ -4,9 +4,10 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login/Login";
 import SignUp from "../pages/Auth/SignUp/SignUp";
 import Events from "../pages/Events/Events";
-import CreateEventForm from "../pages/Events/CreateEventForm/CreateEventForm";
 import EventPage from "../pages/Events/EventPage/EventPage";
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
+import CreateUpdateForm from "../pages/AdminPanel/CreateUpdateForm/CreateUpdateForm";
+import CreateEventForm from "../pages/Events/CreateEventForm/CreateEventForm";
 
 const Content = () => {
 	return (
@@ -17,12 +18,17 @@ const Content = () => {
 				<Route path={"/sign-up"} component={SignUp} exact />
 				<Route path={"/events"} component={Events} exact />
 				<Route path={"/event/:url"} component={EventPage} />
+				<Route path={"/admin"} component={AdminPanel} />
+				<Route
+					path={"/create-update"}
+					component={CreateUpdateForm}
+					exact
+				/>
 				<Route
 					path={"/create-event"}
 					component={CreateEventForm}
 					exact
 				/>
-				<Route path={"/admin"} component={AdminPanel} />
 			</Switch>
 		</div>
 	);
