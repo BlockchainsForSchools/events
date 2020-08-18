@@ -1,17 +1,17 @@
+import {Button, TextField, Typography} from "@material-ui/core";
+import {ThemeProvider} from "@material-ui/core/styles";
 import React from "react";
-import { TextField, Button, Typography } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
 
 type PropTypes = {};
 
 const createUpdateFormDetails = (props: PropTypes) => {
-	const continueToNextStep = (e) => {
-		e.preventDefault();
-		props.nextStep();
-	};
+  const continueToNextStep = (e) => {
+    e.preventDefault();
+    props.nextStep();
+  };
 
-	const { values, onFieldChange } = props;
-	return (
+  const {values, onFieldChange} = props;
+        return (
 		<ThemeProvider>
 			<Typography component="h1" variant="h4">
 				Create Update
@@ -26,20 +26,16 @@ const createUpdateFormDetails = (props: PropTypes) => {
 			/>
 			<br />
 			<TextField
-				label="Update content"
-				variant="outlined"
-				margin="normal"
-				defaultValue={values.content}
-				onChange={onFieldChange("content")}
-				placeholder="Write markdown here"
-				multiline
-				fullWidth="true"
-			/>
-			<br />
-			<Button
-				color="primary"
-				variant="contained"
-				onClick={continueToNextStep}
+        label = "Update content"
+        variant = "outlined"
+        margin = "normal"
+        defaultValue = {values.content} onChange = {
+            onFieldChange("content")} placeholder = "Write markdown here"
+        multiline
+        fullWidth = "true" / > <br />< Button
+        color = "primary"
+        variant = "contained"
+                                onClick={continueToNextStep}
 			>
 				Continue to Preview
 			</Button>
