@@ -25,7 +25,9 @@ const AdminAppBar = (props: PropTypes) => {
 			<Toolbar className={classes.toolbar}>
 				<Typography variant="h5">Admin Panel</Typography>
 				<div className={classes.toolbarButtons}>
-					<Button color="inherit">Log Out</Button>
+					<Button color="inherit" href="/">
+						Log Out
+					</Button>
 				</div>
 			</Toolbar>
 		</AppBar>
