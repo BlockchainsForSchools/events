@@ -62,7 +62,6 @@ const LogInDialog = (props: PropTypes) => {
 		<Dialog
 			open={open}
 			onClose={handleClose}
-			aria-labelledby="form-dialog-title"
 		>
 			<DialogTitle id="form-dialog-title">Log In</DialogTitle>
 			<DialogContent className={classes.loginForm}>
