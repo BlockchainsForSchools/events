@@ -1,15 +1,12 @@
 // @flow
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import {
-	Button,
-	Link,
-	CssBaseline,
-	TextField,
-	Grid,
-	Typography,
-	Container
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import { makeStyles } from "@material-ui/core/styles";
 
 // import authserver from "../../../utils/authserver";
@@ -17,32 +14,40 @@ import { makeStyles } from "@material-ui/core/styles";
 type PropTypes = {};
 
 const useStyles = makeStyles((theme) => ({
-	paper: {
-		marginTop: theme.spacing(8),
+	signUpForm: {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center"
-	},
-	form: {
-		width: "100%",
-		marginTop: theme.spacing(3)
-	},
-	submit: {
-		margin: theme.spacing(3, 0, 2)
 	}
 }));
 
-export const SignUp = (props: PropTypes) => {
+const handleSignUp = (event) => {
+	event.preventDefault();
+	const firstName = event.target.firstName.value;
+	const lastName = event.target.lastName.value;
+	const email = event.target.email.value;
+	const password = event.target.password.value;
+	const password2 = event.target.password2.value;
+	console.log("first name: " + firstName);
+	console.log("last name: " + lastName);
+	console.log("email: " + email);
+	console.log("password: " + password);
+	console.log("confirm password: " + password2);
+};
+
+const SignUpDialog = (props: PropTypes) => {
 	const classes = useStyles();
+	const { open, handleClose } = props;
 
 	return (
-		<Container component="main" maxWidth="xs">
-			<CssBaseline />
-			<div className={classes.paper}>
-				<Typography component="h1" variant="h4">
-					Sign Up
-				</Typography>
-				<form className={classes.form} noValidate>
+		<Dialog
+			open={open}
+			onClose={handleClose}
+			aria-labelledby="form-dialog-title"
+		>
+			<DialogTitle id="form-dialog-title">Sign Up</DialogTitle>
+			<DialogContent className={classes.signUpForm}>
+				<form onSubmit={handleSignUp} noValidate>
 					<Grid container spacing={2}>
 						<Grid item xs={12} sm={6}>
 							<TextField
@@ -99,30 +104,18 @@ export const SignUp = (props: PropTypes) => {
 							/>
 						</Grid>
 					</Grid>
-					<Button
-						type="submit"
-						fullWidth
-						variant="contained"
-						color="primary"
-						className={classes.submit}
-					>
-						Sign Up
-					</Button>
-					<Grid container justify="center">
-						<Grid item>
-							<Link
-								component={RouterLink}
-								to="/login"
-								variant="body2"
-							>
-								Already have an account? Log in
-							</Link>
-						</Grid>
-					</Grid>
+					<DialogActions>
+						<Button onClick={handleClose} color="primary">
+							Cancel
+						</Button>
+						<Button type="submit" color="primary">
+							Sign Up
+						</Button>
+					</DialogActions>
 				</form>
-			</div>
-		</Container>
+			</DialogContent>
+		</Dialog>
 	);
 };
 
-export default SignUp;
+export default SignUpDialog;

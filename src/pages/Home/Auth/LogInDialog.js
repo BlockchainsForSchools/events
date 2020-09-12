@@ -1,16 +1,12 @@
 // @flow
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import { GoogleLogin } from "react-google-login";
-import {
-	Button,
-	Link,
-	CssBaseline,
-	TextField,
-	Grid,
-	Typography,
-	Container
-} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import authserver from "../../../utils/authserver";
@@ -18,19 +14,11 @@ import authserver from "../../../utils/authserver";
 type PropTypes = {};
 
 const useStyles = makeStyles((theme) => ({
-	paper: {
-		marginTop: theme.spacing(8),
+	loginForm: {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center"
 	},
-	form: {
-		width: "100%",
-		marginTop: theme.spacing(1)
-	},
-	submit: {
-		margin: theme.spacing(3, 0, 2)
-	}
 }));
 
 const handleLogin = (event) => {
@@ -66,17 +54,18 @@ const failureResponseGoogle = (response) => {
 	console.log("details: " + response.details);
 };
 
-export const Login = (props: PropTypes) => {
+const LogInDialog = (props: PropTypes) => {
 	const classes = useStyles();
+	const { open, handleClose } = props;
 
 	return (
-		<Container component="main" maxWidth="xs">
-			<CssBaseline />
-			<div className={classes.paper}>
-				<Typography component="h1" variant="h4">
-					Log In
-				</Typography>
-				<br />
+		<Dialog
+			open={open}
+			onClose={handleClose}
+			aria-labelledby="form-dialog-title"
+		>
+			<DialogTitle id="form-dialog-title">Log In</DialogTitle>
+			<DialogContent className={classes.loginForm}>
 				<GoogleLogin
 					clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
 					buttonText="Continue with Google"
@@ -84,11 +73,8 @@ export const Login = (props: PropTypes) => {
 					onFailure={failureResponseGoogle}
 					cookiePolicy={"single_host_origin"}
 				/>
-				<form
-					onSubmit={handleLogin}
-					className={classes.form}
-					noValidate
-				>
+                <br />
+				<form onSubmit={handleLogin} noValidate>
 					<TextField
 						variant="outlined"
 						margin="dense"
@@ -111,30 +97,18 @@ export const Login = (props: PropTypes) => {
 						id="password"
 						autoComplete="current-password"
 					/>
-					<Button
-						type="submit"
-						fullWidth
-						variant="contained"
-						color="primary"
-						className={classes.submit}
-					>
-						Log In
-					</Button>
-					<Grid container justify="center">
-						<Grid item>
-							<Link
-								component={RouterLink}
-								to="/sign-up"
-								variant="body2"
-							>
-								{"Don't have an account? Sign Up"}
-							</Link>
-						</Grid>
-					</Grid>
+					<DialogActions>
+						<Button onClick={handleClose} color="primary">
+							Cancel
+						</Button>
+						<Button type="submit" color="primary">
+							Log In
+						</Button>
+					</DialogActions>
 				</form>
-			</div>
-		</Container>
+			</DialogContent>
+		</Dialog>
 	);
 };
 
-export default Login;
+export default LogInDialog;
