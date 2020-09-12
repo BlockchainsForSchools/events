@@ -1,6 +1,8 @@
 import { Button, TextField, Typography } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import React from "react";
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 type PropTypes = {};
 
@@ -10,7 +12,7 @@ const createUpdateFormDetails = (props: PropTypes) => {
 		props.nextStep();
 	};
 
-	const { values, onFieldChange } = props;
+	const { values, onFieldChange, onMDEChange } = props;
 	return (
 		<ThemeProvider>
 			<Typography component="h1" variant="h4">
@@ -23,17 +25,10 @@ const createUpdateFormDetails = (props: PropTypes) => {
 				defaultValue={values.title}
 				onChange={onFieldChange("title")}
 			/>
-			<br />
-			<TextField
-				label="Update content"
-				variant="outlined"
-				margin="normal"
-				defaultValue={values.content}
-				onChange={onFieldChange("content")}
-				placeholder="Write markdown here"
-				multiline
-				fullWidth="true"
-			/>{" "}
+			<SimpleMDE
+				value={values.content}
+				onChange={onMDEChange}
+			/>
 			<br />
 			<Button
 				color="primary"

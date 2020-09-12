@@ -22,6 +22,10 @@ class CreateUpdateForm extends Component {
 		this.setState({ [input]: e.target.value });
 	};
 
+	MDEChangeHandler = value => {
+		this.setState({ content: value });
+	};
+
 	render() {
 		const { step } = this.state;
 		const { title, content } = this.state;
@@ -34,6 +38,7 @@ class CreateUpdateForm extends Component {
 					<CreateUpdateFormDetails
 						nextStep={this.nextStepHandler}
 						onFieldChange={this.fieldChangeHandler}
+						onMDEChange={this.MDEChangeHandler}
 						values={formValues}
 					/>
 				);
