@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import backend from "../../../utils/backend";
+import authserver from "../../../utils/authserver";
 
 type PropTypes = {};
 
@@ -39,26 +39,26 @@ const handleLogin = (event) => {
 	const password = event.target.password.value;
 	console.log("email: " + email);
 	console.log("password: " + password);
-	backend
-		.post("/api/auth/login", {
-			email: email,
-			password: password
-		})
-		.then((response) => {
-			console.log(response);
-		});
+	// backend
+	// 	.post("/api/auth/login", {
+	// 		email: email,
+	// 		password: password
+	// 	})
+	// 	.then((response) => {
+	// 		console.log(response);
+	// 	});
 };
 
 const successResponseGoogle = (response) => {
 	var id_token = response.getAuthResponse().id_token;
 	console.log(id_token);
-	backend
-		.post("/api/auth/oauthlogin", {
-			token: id_token
-		})
-		.then((response) => {
-			console.log(response);
-		});
+	// backend
+	// 	.post("/api/auth/oauthlogin", {
+	// 		token: id_token
+	// 	})
+	// 	.then((response) => {
+	// 		console.log(response);
+	// 	});
 };
 
 const failureResponseGoogle = (response) => {
